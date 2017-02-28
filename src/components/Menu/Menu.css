@@ -1,6 +1,25 @@
-.Menu-AnimationContainer {
-    position:absolute;
-    margin:auto;
-    left:0;right:0;
-    top:0;bottom:0;
+.VerticalCenter {
+    font-size: 2em;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.GachaModal {
+    border: 0.15rem solid black;
+    min-width: 60%;
+    min-height: 60%;
+    border-radius: 1rem;
+    box-shadow: 0.3rem 0.3rem 0.2rem #CCCCCC;
+    background: #fefecc; /* Old browsers */
+    background-image: url('../../assets/dotsup.svg'), url('../../assets/dotsdown.svg'), linear-gradient(to bottom, #fefefd 0%, #fff6cc 100%);
+    background-repeat: repeat-x, repeat-x;
+    background-position: bottom, top;
+    background-size: 2rem, 2rem, contain;
+}
+
+.LimitedBox {
+    color: black;
 }
