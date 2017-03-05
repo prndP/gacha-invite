@@ -1,5 +1,5 @@
 import './BackgroundAnimation';
-import {lib, images, createjs, spritesheet as ss} from '../../libs/AnimateCommon';
+import {lib, images, createjs, spritesheet as ss} from '../../libs/animate/AnimateCommon';
 import React, {Component} from 'react';
 import './CogContainer.css';
 
@@ -18,7 +18,6 @@ class CogContainer extends Component {
 		}
 
 		this.domOverlayStyle = {
-			pointerEvents: 'none',
 			overflow: 'hidden',
 			width: this.containerWidth,
 			height: this.containerHeight,

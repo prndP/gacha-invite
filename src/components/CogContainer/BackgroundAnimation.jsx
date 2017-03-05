@@ -1,4 +1,4 @@
-import {lib, images as img, createjs as cjs} from '../../libs/AnimateCommon';
+import {lib, images as img, createjs as cjs} from '../../libs/animate/AnimateCommon';
 import Gradientwheel from './Gradientwheel.jpg';
 const exportRoot = lib.exportRoot;
 

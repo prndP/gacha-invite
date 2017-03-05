@@ -1,0 +1,17 @@
+.SSButton {
+    border: 1px solid black;
+    background: linear-gradient(to bottom, #f68add 0%,#cc269e 100%);
+    color: white;
+    box-shadow: 0 0.2rem 4px 0px black;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    cursor: pointer;
+    margin-bottom: 0.2rem;
+    user-select: none;
+}
+
+.SSButton.active {
+    background: linear-gradient(to bottom, #f68add 0%,#cc269e 100%);
+    box-shadow: 0 0 4px 0px black;
+    margin-bottom: 0;
+}
