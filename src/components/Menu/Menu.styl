@@ -12,7 +12,7 @@ GachaPaddingTop = 1.5rem;
 
 .GachaLeft {
   position: absolute;
-  width: 44%;
+  width: 46%;
   height: 100%;
   padding-left: GachaPaddingLeft;
   padding-top: GachaPaddingTop;
@@ -22,7 +22,7 @@ GachaPaddingTop = 1.5rem;
 
 .GachaRight {
   position: absolute;
-  width: 56%;
+  width: 54%;
   height: 100%;
   right: 0;
   padding-right: GachaPaddingLeft;
@@ -42,6 +42,14 @@ GachaPaddingTop = 1.5rem;
   padding-left: GachaPaddingLeft;
   padding-right: GachaPaddingLeft;
   box-sizing: border-box;
+  display: flex;
+  > .LimitedContainer {
+    padding-left: 1rem;
+    flex: 1 0 auto;
+    > .LimitedLabel {
+      text-align: right;
+    }
+  }
 }
 
 .GachaImageContainer {
@@ -97,6 +105,10 @@ GachaPaddingTop = 1.5rem;
   padding-left: 0.2rem;
   color: black;
   border-bottom: 1px dotted lightgray;
+}
+
+.Number{
+  color: #cc269e;
 }
 
 .SSButton.GachaPullButton {

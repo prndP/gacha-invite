@@ -1,31 +1,44 @@
 .SSButton {
   border: 1px solid black;
-  background: #f68add;
-  background-image: linear-gradient(to bottom, #f68add 0%, #cc269e 100%);
-  color: white;
   box-shadow: 0 0.2rem 4px 0 black;
-  padding-left: 0.8rem;
-  padding-right: 0.8rem;
+  padding: 0.4rem 1rem;
   cursor: pointer;
   margin-bottom: 0.2rem;
   user-select: none;
   border-radius: 0.5rem;
-  min-height: 3rem;
-  font-size: 1.2rem;
-  text-shadow:
-          -1px -1px 2px #000,
-          1px -1px 2px #000,
-          -1px  1px 2px #000,
-          1px  1px 2px #000;
+  font-size: 1.3rem;
   &.active {
     box-shadow: 0 0 4px 0 black;
     margin-bottom: 0;
+    margin-top: 0.2rem;
   }
-  &.with-bg {
-    background-image: url('../../assets/buttonbg.svg'), linear-gradient(to bottom, #f68add 0%, #cc269e 100%);
-    background-repeat: no-repeat;
-    background-position: top right;
-    background-size: 100%, contain;
+  &.Pink{
+    color: white;
+    background: #f68add;
+    background-image: linear-gradient(to bottom, #f68add 0%, #cc269e 100%);
+    text-shadow:
+            -1px -1px 2px #000,
+            1px -1px 2px #000,
+            -1px  1px 2px #000,
+            1px  1px 2px #000;
+    &.with-bg {
+      background-image: url('../../assets/buttonbg.svg'), linear-gradient(to bottom, #f68add 0%, #cc269e 100%);
+      background-repeat: no-repeat;
+      background-position: top right;
+      background-size: 100%, contain;
+    }
   }
+  &.White{
+    color: black;
+    background: white;
+    &.with-bg {
+      background-image: url('../../assets/buttonbg_gray.svg'), linear-gradient(to bottom, #ffffff 0%, #dedede 100%);
+      background-repeat: no-repeat;
+      background-position: top right;
+      background-size: 100%, contain;
+    }
+  }
+
+
 }
 
