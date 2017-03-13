@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import './SSButton.css';
+import './SSButton.styl';
 
 class MenuButton extends Component {
 	constructor(props) {

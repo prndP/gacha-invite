@@ -3,12 +3,11 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import CogContainer from '../CogContainer/CogContainer';
 import Modal from '../Modal/Modal';
 import menuBgm from './bgm_gacha_menu.mp3';
-import './Menu.css';
+import './Menu.styl';
 
 import SSButton from '../SSButton/SSButton';
 
 const GachaImage = require('../../assets/gachabanner.jpg');
-const RsvpImage = require('../../assets/rsvpby.png');
 
 function FirstChild(props) {
     const childrenArray = React.Children.toArray(props.children);
@@ -21,7 +20,7 @@ class Menu extends Component {
             <div>
                 <audio autoPlay="true" loop="true">
                     Audio not supported
-                    <source src={menuBgm} type="audio/mp3"></source>
+                    <source src={menuBgm} type="audio/mp3"/>
                 </audio>
                 <CogContainer>
                     <div className="VerticalCenter">
@@ -36,11 +35,11 @@ class Menu extends Component {
                             <Modal className="GachaModal" slide={true}>
                                 <div className="GachaLeft">
                                     <div className="LimitedContainer">
-                                        <div className="LimitedBox"><img src={RsvpImage} alt="RSVP By"></img></div>
+                                        <div className="LimitedBox">RSVP By</div>
                                         <div className="LimitedLabel">06/24 23:59</div>
                                     </div>
                                     <div className="GachaImageContainer">
-                                        <img className="GachaImage" src={GachaImage} role="presentation"></img>
+                                        <img className="GachaImage" src={GachaImage} role="presentation"/>
                                         <SSButton className="DetailsButton">
                                             About Us
                                         </SSButton>
@@ -56,6 +55,15 @@ class Menu extends Component {
                                         date so that you can attend! There will be a ceremony, reception, and after
                                         party!
                                     </p>
+                                    <div className="TicketContainer">
+                                        <div className="LimitedContainer">
+                                            <div className="LimitedBox">Save The Date Ticket</div>
+                                            <div className="LimitedLabel">
+                                                1
+                                            </div>
+                                        </div>
+                                        <SSButton className="GachaPullButton with-bg">Save The Date</SSButton>
+                                    </div>
                                 </div>
                             </Modal>
                         </ReactCSSTransitionGroup>
