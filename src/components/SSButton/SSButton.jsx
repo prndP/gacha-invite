@@ -15,10 +15,15 @@ class MenuButton extends Component {
 				onMouseDown={() => this.setState({active: true})}
 				onMouseUp={() => this.setState({active: false})}
 				onMouseOut={() => this.setState({active: false})}
+				onClick={this.props.onClick}
 		>
 			{this.props.children}
 		</div>);
 	}
+}
+
+MenuButton.defaultProps = {
+	onClick: () => {}
 }
 
 export default MenuButton;

@@ -1,0 +1,27 @@
+<svg id="Group1" xmlns="http://www.w3.org/2000/svg" width="25" height="44" viewBox="0 0 25 44">
+<defs>
+    <style>
+      .cls-1 {
+        fill: #333;
+      }
+      .cls-2 {
+        fill: #555;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" x="1" y="38" width="5" height="6"/>
+  <rect class="cls-1" x="1" y="28" width="5" height="6"/>
+  <rect class="cls-1" x="1" y="18" width="5" height="6"/>
+  <rect class="cls-1" x="1" y="8" width="5" height="6"/>
+  <rect class="cls-1" x="1" y="1" width="5" height="4"/>
+  <rect class="cls-2" x="10" y="38" width="5" height="6"/>
+  <rect class="cls-2" x="10" y="28" width="5" height="6"/>
+  <rect class="cls-2" x="10" y="18" width="5" height="6"/>
+  <rect class="cls-2" x="10" y="8" width="5" height="6"/>
+  <rect class="cls-2" x="10" y="1" width="5" height="4"/>
+  <rect class="cls-2" x="19" y="38" width="5" height="6"/>
+  <rect class="cls-2" x="19" y="28" width="5" height="6"/>
+  <rect class="cls-2" x="19" y="18" width="5" height="6"/>
+  <rect class="cls-2" x="19" y="8" width="5" height="6"/>
+  <rect class="cls-2" x="19" y="1" width="5" height="4"/>
+</svg>

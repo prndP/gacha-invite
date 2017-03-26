@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-import './Modal.css';
+import './Modal.styl';
 
 function FirstChild(props) {
     const childrenArray = React.Children.toArray(props.children);

@@ -1,0 +1,82 @@
+.Modal.Dialog {
+  position: absolute;
+  background: black;
+  display: flex;
+  flex-direction: column;
+
+  .Header, .Footer {
+    background: white;
+  }
+  .Header {
+    height: 4rem;
+    padding-top: 0.75rem;
+    padding-bottom: 1rem;
+    box-sizing: border-box;
+    padding-left: 1.9%;
+    text-align: left;
+    > img {
+      height: 100%;
+      vertical-align: middle;
+    }
+    > span {
+      padding-left: 0.5rem;
+      padding-bottom: 0.1rem;
+      vertical-align: middle;
+    }
+  }
+  .Footer {
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .CloseButton {
+      width: 10rem;
+    }
+  }
+  .Body {
+    height: 100%;
+    color: white;
+    padding-left: 1.2%;
+    padding-right: 1.2%;
+    text-align: left;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .Divider {
+    margin: 1.5% 0;
+    padding-left: 2rem;
+    background: url('../../assets/gridgray.svg') no-repeat bottom left;
+    background-size: contain;
+    border-bottom: 1px dotted lightgray;
+
+    > .TypeLabel {
+      position: absolute;
+      height: 5%;
+      width: 100%;
+      top: auto;
+      margin-top: -0.6%;
+
+      > img {
+        vertical-align: middle;
+      }
+      .TypeLogo {
+        height: 92%;
+        width: auto;
+      }
+      .TypeRarity {
+        border: 1px solid lightgrey;
+        box-shadow: #ddd 0 0 4px 0;
+        margin-left: 0.5%;
+        padding: 0.5% 0.2%;
+        border-radius: 18%;
+        background-color: #000;
+        height: 47%;
+      }
+    }
+    .DividerTitle {
+      padding-left: 40%;
+    }
+  }
+
+}

@@ -1,0 +1,67 @@
+.Modal {
+  border: 0.15rem solid black;
+  border-radius: 1rem;
+  box-shadow: 0.3rem 0.3rem 0.2rem #CCCCCC;
+  position: relative;
+  overflow: hidden;
+  width: 67%;
+  height: 58%;
+  &.Large{
+    width: 80%;
+    height: 80%;
+  }
+  &.Small{
+    width: 80%;
+    height: 80%;
+  }
+}
+
+.ModalPane {
+  position: relative;
+  height: 100%;
+}
+
+.ModalLeft {
+  position: absolute;
+  width: 46%;
+  height: 100%;
+  padding-left: 1.95%;
+  left: 0;
+  box-sizing: border-box;
+}
+
+.ModalRight {
+  position: absolute;
+  width: 54%;
+  height: 100%;
+  right: 0;
+  padding-right: 1.95%;
+  padding-left: 1.95%;
+  box-sizing: border-box;
+  > p {
+    text-align: left;
+  }
+}
+
+/** Transitions **/
+
+.Modal-Slide-appear {
+  left: 60%;
+}
+
+.Modal-Slide-appear.Modal-Slide-appear-active {
+  left: 0;
+  background-color: green;
+  transition: left 200ms ease-in;
+}
+
+.Modal-Pop-appear {
+  max-width: 10%;
+  max-height: 10%;
+}
+
+.Modal-Pop-appear.Modal-Pop-appear-active {
+  max-width: 95%;
+  max-height: 95%;
+  transition: all 200ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}

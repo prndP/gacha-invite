@@ -1,0 +1,59 @@
+boxRatio = 0.75;
+lineHeight = 1.65;
+
+.LimitedContainer {
+  font-size: 0.6em;
+  display: flex;
+  line-height: lineHeight em;
+  padding-bottom: 0.75em;
+  align-items: flex-start;
+}
+
+.LimitedBox {
+  height: (lineHeight/boxRatio) em;
+  background-color: gray;
+  box-shadow: #aaaaaa 0 0 3px 0;
+  border: none;
+  border-radius: 10px;
+  white-space nowrap;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  text-align: center;
+  color: white;
+  font-size: boxRatio em;
+  text-shadow: -1px -1px 0 #000,
+          1px -1px 0 #000,
+          -1px 1px 0 #000,
+          1px 1px 0 #000,
+          0px 1px 0 #000,
+          0px -1px 0 #000;
+
+  &.Green {
+    background-color: #45ca89;
+    box-shadow: #6dffc4 0 0 3px 0;
+  }
+  &.Red {
+    background-color: #e95963;
+    box-shadow: #ff979f 0 0 3px 0;
+  }
+  &.Blue {
+    background-color: #56bada;
+    box-shadow: #8ef2ff 0 0 3px 0;
+  }
+  &.Orange {
+    background-color: #fc993c;
+    box-shadow: #ffb471 0 0 3px 0;
+  }
+}
+
+.LimitedLabel {
+  text-align: left;
+  font-weight: bold;
+  width: 100%;
+  padding-left: 0.2rem;
+  border-bottom: 1px dotted lightgray;
+  .NewLine {
+    border-bottom: 1px dotted lightgray;
+    margin-bottom: 0.75rem;
+  }
+}

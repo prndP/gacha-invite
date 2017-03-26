@@ -1,12 +1,34 @@
 import React, {Component} from 'react';
 import CogContainer from '../CogContainer/CogContainer';
+import AboutUsDialog from '../AboutUsDialog/AboutUsDialog';
 import Modal from '../Modal/Modal';
-import menuBgm from './bgm_gacha_menu.mp3';
-import './Menu.styl';
 import SSButton from '../SSButton/SSButton';
+import './GachaMenu.styl';
+import PillLabel from "../PillLabel/PillLabel";
+
+const menuBgm = require('./bgm_gacha_menu.mp3');
 const GachaImage = require('../../assets/gachabanner.jpg');
 
-class Menu extends Component {
+
+class GachaMenu extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            showDialog: null
+        };
+    }
+
+    renderDialog() {
+        switch (this.state.showDialog) {
+            case 'aboutUs':
+                return (
+                    <AboutUsDialog isOpen={this.state.showDialog === 'aboutUs'}
+                                   dismiss={(e) => this.setState({showDialog: false})} />);
+            default:
+                return;
+        }
+    }
+
     render() {
         return (
             <div>
@@ -17,19 +39,17 @@ class Menu extends Component {
                 <CogContainer>
                     <div className="VerticalCenter">
                         <Modal className="GachaModal" transition='Modal-Slide'>
-                            <div className="GachaLeft">
-                                <div className="LimitedContainer">
-                                    <div className="LimitedBox">RSVP By</div>
-                                    <div className="LimitedLabel">06/24 23:59</div>
-                                </div>
+                            <div className="ModalLeft">
+                                <PillLabel pillText="RSVP By">06/24 23:59</PillLabel>
                                 <div className="GachaImageContainer">
                                     <img className="GachaImage" src={GachaImage} role="presentation"/>
-                                    <SSButton className="DetailsButton Pink">
+                                    <SSButton className="DetailsButton Pink"
+                                              onClick={(e) => this.setState({showDialog: 'aboutUs'})}>
                                         About Us
                                     </SSButton>
                                 </div>
                             </div>
-                            <div className="GachaRight">
+                            <div className="ModalRight">
                                 <h2>M@GIC WEDDING STORY!</h2>
                                 <p>
                                     Li popped the question! and now we would like to ask you to save the date for
@@ -40,16 +60,15 @@ class Menu extends Component {
                                     party!
                                 </p>
                                 <div className="TicketContainer">
-                                    <SSButton className="GachaPullButton Pink with-bg">Save The Date</SSButton>
-                                    <div className="LimitedContainer">
-                                        <div className="LimitedBox">Save The Date Tickets</div>
-                                        <div className="LimitedLabel">
-                                            <span className="Number">1</span> ticket
-                                        </div>
-                                    </div>
+                                    <SSButton className="GachaPullButton Pink with-bg"
+                                              onClick={this.props.getGachaResults}>Save The Date</SSButton>
+                                    <PillLabel pillText="Save The Date Tickets">
+                                        <span className="Number">1</span> ticket
+                                    </PillLabel>
                                 </div>
                             </div>
                         </Modal>
+                        {this.renderDialog()}
                     </div>
                 </CogContainer>
             </div>
@@ -57,4 +76,9 @@ class Menu extends Component {
     }
 }
 
-export default Menu;
+GachaMenu.defaultProps = {
+    getGachaResults: () => {
+    }
+};
+
+export default GachaMenu;
