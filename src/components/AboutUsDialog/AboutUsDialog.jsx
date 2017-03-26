@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Dialog from '../Dialog/Dialog';
 import PillLabel from "../PillLabel/PillLabel";
+import TabBar from "../TabBar/TabBar";
 import moment from 'moment';
 import './AboutUsDialog.styl';
 const ssrLogo = require('../../assets/ssrlogo.png');
@@ -9,11 +10,17 @@ const passionSvg = require('../../assets/passion.svg');
 const theDate = moment('20170924', 'YYYYMMDD');
 
 class AboutUsDialog extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
-            date: new moment()
-        }
+            date: new moment(),
+            activeTab: 0
+        };
+        this.tabs = [
+            {key: 'info', text: 'Information', onClick: () => this.setState({activeTab: 0})},
+            {key: 'wp', text: 'Wedding Party', onClick: () => this.setState({activeTab: 1})}
+        ];
     }
 
     componentDidMount() {
@@ -32,11 +39,20 @@ class AboutUsDialog extends Component {
         })
     }
 
-    render() {
-        return (
-            <Dialog className="Large" headerText="About Us" isOpen={this.props.isOpen}
-                    dismiss={this.props.dismiss}>
+    renderTabs() {
+        switch (this.state.activeTab) {
+            case 0:
+                return this.renderInformation();
+            case 1:
+                return this.renderWeddingParty();
+            default:
+                return null;
+        }
+    }
 
+    renderInformation() {
+        return (
+            <div>
                 <div className="Divider">
                     <div className="TypeLabel">
                         <img className="TypeLogo" src={passionSvg} alt="Passion"/>
@@ -46,7 +62,7 @@ class AboutUsDialog extends Component {
                 </div>
                 <div className="ModalPane">
                     <div className="ModalLeft">ABC</div>
-                    <div className="ModalRight">
+                    <div className="ModalRight AboutUsDetails">
                         <div className="ModalPane">
                             <div className="GridRow">
                                 <div className="GridCol50">
@@ -54,16 +70,18 @@ class AboutUsDialog extends Component {
                                                pillText="Date">{theDate.format('MM/DD/YYYY')}</PillLabel>
                                 </div>
                                 <div className="GridCol50">
-                                    <PillLabel className="Red"
-                                               pillText="That's in"><span
-                                        className="Number">{theDate.diff(this.state.date, 'days')}</span>
-                                        days</PillLabel></div>
+                                    <PillLabel className="Red" pillText="That's in">
+                                        <span className="Number">{theDate.diff(this.state.date, 'days')} </span> days
+                                    </PillLabel>
+                                </div>
                             </div>
                             <div className="GridRow">
-                                <div className="GridCol50"><PillLabel className="Blue" pillText="Ceremony">11:30
-                                    am</PillLabel></div>
-                                <div className="GridCol50"><PillLabel className="Orange" pillText="Reception">12:30 pm -
-                                    5:00 pm</PillLabel></div>
+                                <div className="GridCol50">
+                                    <PillLabel className="Blue" pillText="Ceremony">11:30 am</PillLabel>
+                                </div>
+                                <div className="GridCol50"><PillLabel className="Orange" pillText="Reception">
+                                    12:30 pm - 5:00 pm</PillLabel>
+                                </div>
                             </div>
                             <div className="GridRow">
                                 <div className="GridCol100">
@@ -81,14 +99,29 @@ class AboutUsDialog extends Component {
                             </div>
                             <div className="GridRow">
                                 <div className="GridCol100">
-                                    <PillLabel pillText="RSVP">If you know you would be able to attend, please
-                                        visit</PillLabel>
+                                    <PillLabel pillText="RSVP">
+                                        <div className="NewLine">If you know you would be able to attend,</div>
+                                        please visit
+                                    </PillLabel>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
+            </div>
+        )
+    }
+
+    renderWeddingParty() {
+
+    }
+
+    render() {
+        return (
+            <Dialog className="Large" headerText="About Us" isOpen={this.props.isOpen}
+                    dismiss={this.props.dismiss}>
+                <TabBar tabs={this.tabs} active={this.state.activeTab}/>
+                {this.renderTabs()}
             </Dialog>
         );
     }

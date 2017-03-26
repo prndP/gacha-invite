@@ -5,7 +5,6 @@ import Modal from '../Modal/Modal';
 import SSButton from '../SSButton/SSButton';
 import './GachaMenu.styl';
 import PillLabel from "../PillLabel/PillLabel";
-
 const menuBgm = require('./bgm_gacha_menu.mp3');
 const GachaImage = require('../../assets/gachabanner.jpg');
 
@@ -23,7 +22,7 @@ class GachaMenu extends Component {
             case 'aboutUs':
                 return (
                     <AboutUsDialog isOpen={this.state.showDialog === 'aboutUs'}
-                                   dismiss={(e) => this.setState({showDialog: false})} />);
+                                   dismiss={(e) => this.setState({showDialog: false})}/>);
             default:
                 return;
         }
