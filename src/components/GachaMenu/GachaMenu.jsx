@@ -3,11 +3,13 @@ import CogContainer from '../CogContainer/CogContainer';
 import AboutUsDialog from '../AboutUsDialog/AboutUsDialog';
 import Modal from '../Modal/Modal';
 import SSButton from '../SSButton/SSButton';
-import './GachaMenu.styl';
 import PillLabel from "../PillLabel/PillLabel";
+import './GachaMenu.styl';
+
+// Assets
 const menuBgm = require('./bgm_gacha_menu.mp3');
 const GachaImage = require('../../assets/gachabanner.jpg');
-
+const eventNameLogo = require('../../assets/eventNameLogo2.svg');
 
 class GachaMenu extends Component {
     constructor(props) {
@@ -49,7 +51,9 @@ class GachaMenu extends Component {
                                 </div>
                             </div>
                             <div className="ModalRight">
-                                <h2>M@GIC WEDDING STORY!</h2>
+                                <p>
+                                    <img className="EventNameLogo" src={eventNameLogo} alt="M@GIC WEDDING STORY!"/>
+                                </p>
                                 <p>
                                     Li popped the question! and now we would like to ask you to save the date for
                                     our wedding! Li and
