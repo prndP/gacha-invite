@@ -1,16 +1,12 @@
 import React, {Component} from 'react';
 import drawVideo from '../../assets/ssr_drawn.mp4';
 import './Results.styl';
+import MoviePlayer from "../MoviePlayer/MoviePlayer";
 
 class Results extends Component {
     render() {
         return (
-            <div className="Results">
-                <video autoPlay="true">
-                    Video not supported
-                    <source src={drawVideo} type="video/mp4"/>
-                </video>
-            </div>
+            <MoviePlayer movie={drawVideo} image="" settings="" onSettingsChange=""/>
         );
     }
 }
