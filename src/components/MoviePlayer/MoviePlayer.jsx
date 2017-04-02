@@ -5,6 +5,8 @@
 
 import React from 'react';
 import CharacterNameFrame from '../CharacterNameFrame/CharacterNameFrame';
+import ResponsiveCanvasListener from '../../utils/ResponsiveCanvasListener';
+
 import './MoviePlayer.styl';
 
 export default class MoviePlayer extends React.Component {
@@ -46,10 +48,12 @@ export default class MoviePlayer extends React.Component {
         this.ctx.drawImage(image, x, y, iw * scale, ih * scale);
     }
 
-    draw() {
+    draw(forceDraw) {
         if (!this.refs.video) return;
-        window.requestAnimationFrame(this.draw.bind(this));
-        if (this.refs.video.paused) return;
+        if (!this.refs.video.ended) {
+            window.requestAnimationFrame(this.draw.bind(this));
+        }
+        if (this.refs.video.paused && !forceDraw) return;
         const {width, height} = this.refs.canvas;
         const time = this.refs.video.currentTime;
         this.ctx.clearRect(0, 0, width, height);
@@ -70,20 +74,27 @@ export default class MoviePlayer extends React.Component {
 
     componentDidMount() {
         this.ctx = this.refs.canvas.getContext('2d');
+        this.canvasListener = new ResponsiveCanvasListener(this.refs.canvas, this.refs.videoContainer, () => {
+            this.draw(true);
+        });
         window.requestAnimationFrame(this.draw.bind(this));
+    }
+
+    componentWillUnmount() {
+        this.canvasListener.destroy();
     }
 
     render() {
         return (
-            <div className="sign-video-container">
-                <canvas ref="canvas"/>
+            <div className="sign-video-container" ref="videoContainer">
+                <canvas width="720" height="405" ref="canvas"/>
                 <video autoPlay="true" ref="video">
                     Video not supported
-                    <source src={this.props.video} type="video/mp4"/>
+                    <source src={this.props.movie} type="video/mp4"/>
                 </video>
                 <CharacterNameFrame title={this.props.characterTitle}
                                     name={this.props.characterName}
-                                    type={this.props.color}
+                                    type={this.props.type}
                                     standBy={this.state.nameStandBy}/>
             </div>
         );
@@ -94,5 +105,7 @@ MoviePlayer.propTypes = {
     image: React.PropTypes.instanceOf(Image).isRequired,
     characterImage: React.PropTypes.instanceOf(Image).isRequired,
     characterName: React.PropTypes.string,
-    characterTitle: React.PropTypes.string
+    characterTitle: React.PropTypes.string,
+    type: React.PropTypes.string,
+    movie: React.PropTypes.string
 };

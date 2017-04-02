@@ -59,7 +59,7 @@ class CogContainer extends Component {
         const stage = new createjs.Stage(this.canvas);
         stage.addChild(lib.exportRoot);
         //Registers the "tick" event listener.
-        const fnStartAnimation =  () => {
+        const fnStartAnimation = () => {
             createjs.Ticker.setFPS(lib.properties.fps);
             createjs.Ticker.addEventListener("tick", stage);
         };
@@ -97,12 +97,19 @@ class CogContainer extends Component {
             };
             window.addEventListener('resize', resizeCanvas);
             resizeCanvas();
+            return {resizeCanvasFn: resizeCanvas, stage};
         }
 
-        makeResponsive(true, 'both', true, 1);
+        this.canvasCleanup = makeResponsive(true, 'both', true, 1);
         fnStartAnimation();
     }
 
+    componentWillUnmount() {
+        // Clean up a bunch of stuff Animate CC code added
+        window.removeEventListener('resize', this.canvasCleanup.resizeCanvasFn);
+        this.canvasCleanup.stage.enableDOMEvents(false);
+        createjs.Ticker.removeAllEventListeners();
+    }
 
     render() {
         return (

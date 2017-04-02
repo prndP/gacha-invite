@@ -2,8 +2,9 @@
  * Portions of this code are copyright and licensed under terms of the  MIT license
  * Copyright 2016, spring-raining, https://github.com/spring-raining/SSRgen
  */
-
 import React, {Component} from 'react';
+import './CharacterNameFrame.styl';
+
 class CharacterNameFrame extends Component {
     static getFillColors() {
         return {
