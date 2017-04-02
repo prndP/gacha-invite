@@ -20,7 +20,7 @@ class CharacterNameFrame extends Component {
         if (this.props.standBy) classNames.push('stand-by');
         return (
             <div className={classNames.join(' ')}>
-                <svg width="100%" height="100%">
+                <svg height="100%" viewBox="0 0 807 286">
                     <defs>
                         <linearGradient id="grad" gradientTransform="rotate(90)">
                             <stop offset="0" stopColor={fillColors[0]}/>
@@ -40,12 +40,12 @@ class CharacterNameFrame extends Component {
                     </defs>
                     <g stroke="white" strokeWidth="8" fontFamily="sans-serif" fontWeight="bold"
                        fill="white" filter="url(#filt)" strokeLinejoin="round">
-                        <text fontSize="42px" x="320px" y="85px" textAnchor="left">[{this.props.title}]</text>
-                        <text fontSize="90px" x="400px" y="190px" textAnchor="middle">{this.props.name}</text>
+                        <text fontSize="42" x="320" y="85" textAnchor="left">[{this.props.title}]</text>
+                        <text fontSize="90" x="400" y="190" textAnchor="middle">{this.props.name}</text>
                     </g>
                     <g fill="url(#grad)" fontFamily="sans-serif" fontWeight="bold">
-                        <text fontSize="42px" x="320px" y="85px" textAnchor="left">[{this.props.title}]</text>
-                        <text fontSize="90px" x="400px" y="190px" textAnchor="middle">{this.props.name}</text>
+                        <text fontSize="42" x="320" y="85" textAnchor="left">[{this.props.title}]</text>
+                        <text fontSize="90" x="400" y="190" textAnchor="middle">{this.props.name}</text>
                     </g>
                 </svg>
             </div>

@@ -5,10 +5,12 @@
   transform-origin: left top;
   transform: rotateZ(-10deg);
   height: 28%;
-  width: 50%;
   transition: all 0.5s linear;
   background-size: contain;
   background-repeat: no-repeat;
+  svg {
+    left: 0;
+  }
   &.stand-by {
     transition: none;
     transform: rotateZ(-10deg) translateX(90vw);
