@@ -24,6 +24,6 @@ class MenuButton extends Component {
 
 MenuButton.defaultProps = {
 	onClick: () => {}
-}
+};
 
 export default MenuButton;

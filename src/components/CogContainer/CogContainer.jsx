@@ -18,27 +18,20 @@ class CogContainer extends Component {
         };
 
         this.domOverlayStyle = {
-            overflow: 'hidden',
             width: this.containerWidth,
             height: this.containerHeight,
-            position: 'absolute',
-            left: 0,
-            top: 0,
-            display: 'block'
         }
     }
 
     componentDidMount() {
         const loader = new createjs.LoadQueue(false);
-        loader.addEventListener("fileload", this.handleFileLoad.bind(this));
+        loader.addEventListener("fileload", (evt) => {
+            if (evt.item.type === "image") {
+                images[evt.item.id] = evt.result;
+            }
+        });
         loader.addEventListener("complete", this.handleComplete.bind(this));
         loader.loadManifest(lib.properties.manifest);
-    }
-
-    handleFileLoad(evt) {
-        if (evt.item.type === "image") {
-            images[evt.item.id] = evt.result;
-        }
     }
 
     handleComplete(evt) {
@@ -119,7 +112,7 @@ class CogContainer extends Component {
                 <canvas width={this.canvasStyle.width} height={this.canvasStyle.height} ref={(thisRef) => {
                     this.canvas = thisRef
                 }} style={this.canvasStyle}/>
-                <div ref={(thisRef) => {
+                <div className="CanvasOverlay" ref={(thisRef) => {
                     this.dom_overlay_container = thisRef
                 }} style={this.domOverlayStyle}>
                     {this.props.children}

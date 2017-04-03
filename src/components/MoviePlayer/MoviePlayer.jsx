@@ -26,7 +26,7 @@ export default class MoviePlayer extends React.Component {
     }
 
     drawSign(x, y, alpha = 1, scale = 1, compositeMode) {
-        const {width, height} = this.refs.canvas;
+        const {width, height} = this.canvas;
         if (alpha <= 0) return;
         this.ctx.save();
         this.ctx.globalAlpha = alpha;
@@ -36,7 +36,7 @@ export default class MoviePlayer extends React.Component {
     }
 
     drawCharacter(time) {
-        const {width, height} = this.refs.canvas;
+        const {width, height} = this.canvas;
         const alpha = this.easeAlpha(time, 7, 20, 0);
         const image = this.props.characterImage;
         if (!image || alpha <= 0) return;
@@ -49,17 +49,17 @@ export default class MoviePlayer extends React.Component {
     }
 
     draw(forceDraw) {
-        if (!this.refs.video) return;
-        if (!this.refs.video.ended) {
+        if (!this.video) return;
+        if (!this.video.ended) {
             window.requestAnimationFrame(this.draw.bind(this));
         }
-        if (this.refs.video.paused && !forceDraw) return;
-        const {width, height} = this.refs.canvas;
-        const time = this.refs.video.currentTime;
+        if (this.video.paused && !forceDraw) return;
+        const {width, height} = this.canvas;
+        const time = this.video.currentTime;
         this.ctx.clearRect(0, 0, width, height);
         this.ctx.globalCompositeOperation = 'lighter';
         // main video
-        this.ctx.drawImage(this.refs.video, 0, 0, width, height);
+        this.ctx.drawImage(this.video, 0, 0, width, height);
         // main sign, displayed largely on center
         this.drawSign(0, 0, this.easeAlpha(time, 4.5, 7.1, 0.7), 1);
         // pasted character image
@@ -73,9 +73,9 @@ export default class MoviePlayer extends React.Component {
     }
 
     componentDidMount() {
-        this.ctx = this.refs.canvas.getContext('2d');
+        this.ctx = this.canvas.getContext('2d');
 
-        this.canvasListener = new ResponsiveCanvasListener(this.refs.canvas, this.refs.videoContainer, () => {
+        this.canvasListener = new ResponsiveCanvasListener(this.canvas, this.videoContainer, () => {
             this.draw(true);
         });
         window.requestAnimationFrame(this.draw.bind(this));
@@ -87,9 +87,15 @@ export default class MoviePlayer extends React.Component {
 
     render() {
         return (
-            <div className="sign-video-container" ref="videoContainer">
-                <canvas width="720" height="405" ref="canvas"/>
-                <video autoPlay="true" ref="video">
+            <div className="sign-video-container" ref={(thisRef) => {
+                this.videoContainer = thisRef;
+            }}>
+                <canvas width="720" height="405" ref={(thisRef) => {
+                    this.canvas = thisRef;
+                }}/>
+                <video autoPlay="true" ref={(thisRef) => {
+                    this.video = thisRef
+                }}>
                     Video not supported
                     <source src={this.props.movie} type="video/mp4"/>
                 </video>

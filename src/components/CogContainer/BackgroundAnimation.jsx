@@ -1,34 +1,34 @@
 import {lib, images as img, createjs as cjs} from '../../libs/animate/AnimateCommon';
-import Gradientwheel from './Gradientwheel.jpg';
+const Gradientwheel = require('./Gradientwheel.jpg');
 const exportRoot = lib.exportRoot;
 
-var p; // shortcut to reference prototypes
+let p; // shortcut to reference prototypes
 lib.webFontTxtInst = {};
-var loadedTypekitCount = 0;
-var loadedGoogleCount = 0;
-var gFontsUpdateCacheList = [];
-var tFontsUpdateCacheList = [];
+let loadedTypekitCount = 0;
+let loadedGoogleCount = 0;
+const gFontsUpdateCacheList = [];
+const tFontsUpdateCacheList = [];
 lib.ssMetadata = [];
 
 
 
 lib.updateListCache = function (cacheList) {
-	for(var i = 0; i < cacheList.length; i++) {
+	for(let i = 0; i < cacheList.length; i++) {
 		if(cacheList[i].cacheCanvas)
 			cacheList[i].updateCache();
 	}
 };
 
 lib.addElementsToCache = function (textInst, cacheList) {
-	var cur = textInst;
+	let cur = textInst;
 	while(cur !== exportRoot) {
 		if(cacheList.indexOf(cur) !== -1)
 			break;
 		cur = cur.parent;
 	}
 	if(cur !== exportRoot) {
-		var cur2 = textInst;
-		var index = cacheList.indexOf(cur);
+		let cur2 = textInst;
+		let index = cacheList.indexOf(cur);
 		while(cur2 !== cur) {
 			cacheList.splice(index, 0, cur2);
 			cur2 = cur2.parent;
@@ -46,8 +46,8 @@ lib.addElementsToCache = function (textInst, cacheList) {
 
 lib.gfontAvailable = function(family, totalGoogleCount) {
 	lib.properties.webfonts[family] = true;
-	var txtInst = (lib.webFontTxtInst && lib.webFontTxtInst[family]) || [];
-	for(var f = 0; f < txtInst.length; ++f)
+	const txtInst = (lib.webFontTxtInst && lib.webFontTxtInst[family]) || [];
+	for(let f = 0; f < txtInst.length; ++f)
 		lib.addElementsToCache(txtInst[f], gFontsUpdateCacheList);
 
 	loadedGoogleCount++;
@@ -58,8 +58,8 @@ lib.gfontAvailable = function(family, totalGoogleCount) {
 
 lib.tfontAvailable = function(family, totalTypekitCount) {
 	lib.properties.webfonts[family] = true;
-	var txtInst = (lib.webFontTxtInst && lib.webFontTxtInst[family]) || [];
-	for(var f = 0; f < txtInst.length; ++f)
+	const txtInst = (lib.webFontTxtInst && lib.webFontTxtInst[family]) || [];
+	for(let f = 0; f < txtInst.length; ++f)
 		lib.addElementsToCache(txtInst[f], tFontsUpdateCacheList);
 
 	loadedTypekitCount++;
@@ -77,7 +77,7 @@ lib.tfontAvailable = function(family, totalTypekitCount) {
 p.nominalBounds = new cjs.Rectangle(0,0,900,900);// helper functions:
 
 function mc_symbol_clone() {
-	var clone = this._cloneProps(new this.constructor(this.mode, this.startPosition, this.loop));
+	const clone = this._cloneProps(new this.constructor(this.mode, this.startPosition, this.loop));
 	clone.gotoAndStop(this.currentFrame);
 	clone.paused = this.paused;
 	clone.framerate = this.framerate;
@@ -85,7 +85,7 @@ function mc_symbol_clone() {
 }
 
 function getMCSymbolPrototype(symbol, nominalBounds, frameBounds) {
-	var prototype = cjs.extend(symbol, cjs.MovieClip);
+	const prototype = cjs.extend(symbol, cjs.MovieClip);
 	prototype.clone = mc_symbol_clone;
 	prototype.nominalBounds = nominalBounds;
 	prototype.frameBounds = frameBounds;

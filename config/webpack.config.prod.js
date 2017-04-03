@@ -90,6 +90,7 @@ module.exports = {
         preLoaders: [
             {
                 test: /\.(js|jsx)$/,
+                exclude: [/\.min.js$/],
                 loader: 'eslint',
                 include: paths.appSrc
             }
@@ -109,7 +110,7 @@ module.exports = {
                     /\.(js|jsx)$/,
                     /\.(css|styl)$/,
                     /\.json$/,
-                    /\.svg$/
+                    /\.mp3$/
                 ],
                 loader: 'url',
                 query: {
@@ -120,6 +121,7 @@ module.exports = {
             // Process JS with Babel.
             {
                 test: /\.(js|jsx)$/,
+                exclude: [/\.min.js$/],
                 include: paths.appSrc,
                 loader: 'babel',
 
@@ -161,7 +163,7 @@ module.exports = {
             },
             // "file" loader for svg
             {
-                test: /\.svg$/,
+                test: /\.mp3$/,
                 loader: 'file',
                 query: {
                     name: 'static/media/[name].[hash:8].[ext]'

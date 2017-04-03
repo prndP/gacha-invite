@@ -19,9 +19,9 @@ class App extends Component {
         switch (this.state.display) {
             case 'gacha':
                 return (
-                    <GachaMenu loader={this.props.loader} getGachaResults={(e) => this.getGachaResults()}></GachaMenu>);
+                    <GachaMenu loader={this.props.loader} getGachaResults={(e) => this.getGachaResults()}/>);
             case 'results':
-                return (<Results loader={this.props.loader}></Results>);
+                return (<Results loader={this.props.loader}/>);
             default:
                 return '';
         }

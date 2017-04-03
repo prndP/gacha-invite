@@ -13,7 +13,7 @@
     height: 14px;
     width: 420px;
     background: #1d1d1d;
-    border: 0px;
+    border: 0;
 
     overflow: hidden;
 }
@@ -31,7 +31,6 @@
     -o-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
 
-    position: fixed;
     z-index: 20000;
     display: block;
     position: absolute;
