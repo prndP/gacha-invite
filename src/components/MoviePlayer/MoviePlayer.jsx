@@ -74,6 +74,7 @@ export default class MoviePlayer extends React.Component {
 
     componentDidMount() {
         this.ctx = this.refs.canvas.getContext('2d');
+
         this.canvasListener = new ResponsiveCanvasListener(this.refs.canvas, this.refs.videoContainer, () => {
             this.draw(true);
         });

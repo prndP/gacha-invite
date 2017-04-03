@@ -7,22 +7,21 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            display: ''
+            display: 'gacha'
         };
-        this.props.loader.once('done', () => {
-            this.setState({display: 'gacha'})
-        });
     }
-    getGachaResults(){
+
+    getGachaResults() {
         this.setState({display: 'results'});
     }
 
-    renderDisplay(){
+    renderDisplay() {
         switch (this.state.display) {
             case 'gacha':
-                return (<GachaMenu getGachaResults={(e)=>this.getGachaResults()}></GachaMenu>);
+                return (
+                    <GachaMenu loader={this.props.loader} getGachaResults={(e) => this.getGachaResults()}></GachaMenu>);
             case 'results':
-                return (<Results></Results>);
+                return (<Results loader={this.props.loader}></Results>);
             default:
                 return '';
         }

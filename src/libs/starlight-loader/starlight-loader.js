@@ -86,4 +86,10 @@ Pace.on('done', function() {
 	observer.disconnect();
 });
 
+Pace.options = {
+	elements: {
+		selectors: ['img', 'video', 'audio']
+	}
+};
+
 export {Pace as StarlightLoader};

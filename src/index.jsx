@@ -1,9 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import './index.css';
-require.ensure(['./libs/starlight-loader/starlight-loader'], function () {
-    const {StarlightLoader} = require('./libs/starlight-loader/starlight-loader');
-    StarlightLoader.start();
+import {StarlightLoader} from './libs/starlight-loader/starlight-loader';
+StarlightLoader.start();
+
+require.ensure([], function () {
+    const React = require('react');
+    const ReactDOM = require('react-dom');
+
     const App = require('./App').default;
     ReactDOM.render(
         <App loader={StarlightLoader}/>,
