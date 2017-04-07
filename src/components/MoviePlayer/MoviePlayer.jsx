@@ -6,6 +6,7 @@
 import React from 'react';
 import CharacterNameFrame from '../CharacterNameFrame/CharacterNameFrame';
 import ResponsiveCanvasListener from '../../utils/ResponsiveCanvasListener';
+import {detectMobileDevice} from '../../utils/loaderUtils';
 
 import './MoviePlayer.styl';
 
@@ -13,7 +14,8 @@ export default class MoviePlayer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            nameStandBy: true
+            nameStandBy: true,
+            needsClickToPlay: false
         };
     }
 
@@ -72,6 +74,10 @@ export default class MoviePlayer extends React.Component {
         if (this.state.nameStandBy !== nameStandBy) this.setState({nameStandBy});
     }
 
+    componentWillMount() {
+        this.setState({needsClickToPlay: detectMobileDevice()});
+    }
+
     componentDidMount() {
         this.ctx = this.canvas.getContext('2d');
 
@@ -85,7 +91,22 @@ export default class MoviePlayer extends React.Component {
         this.canvasListener.destroy();
     }
 
+    showClickToPlay() {
+        return (
+            <div className="ClickToPlay" onClick={() => {
+                //this.setState({needsClickToPlay: false});
+                this.video.play();
+            }}> </div>
+        )
+    }
+
     render() {
+        let videoAttrs = {
+            autoPlay: true
+        };
+        if (this.needsClickToPlay) {
+
+        }
         return (
             <div className="sign-video-container" ref={(thisRef) => {
                 this.videoContainer = thisRef;
@@ -93,12 +114,13 @@ export default class MoviePlayer extends React.Component {
                 <canvas width="720" height="405" ref={(thisRef) => {
                     this.canvas = thisRef;
                 }}/>
-                <video autoPlay="true" ref={(thisRef) => {
+                <video {...videoAttrs} ref={(thisRef) => {
                     this.video = thisRef
                 }}>
                     Video not supported
                     <source src={this.props.movie} type="video/mp4"/>
                 </video>
+                {this.state.needsClickToPlay ? this.showClickToPlay() : null}
                 <CharacterNameFrame title={this.props.characterTitle}
                                     name={this.props.characterName}
                                     type={this.props.type}
