@@ -3,6 +3,12 @@ import {lib, images, createjs, spritesheet as ss} from '../../libs/animate/Anima
 import React, {Component} from 'react';
 import './CogContainer.css';
 
+function handleFileLoad(evt) {
+    if (evt.item.type === "image") {
+        images[evt.item.id] = evt.result;
+    }
+}
+
 class CogContainer extends Component {
     constructor(props) {
         super(props);
@@ -25,14 +31,11 @@ class CogContainer extends Component {
 
     componentDidMount() {
         const loader = new createjs.LoadQueue(false);
-        loader.addEventListener("fileload", (evt) => {
-            if (evt.item.type === "image") {
-                images[evt.item.id] = evt.result;
-            }
-        });
+        loader.addEventListener("fileload", handleFileLoad.bind(this));
         loader.addEventListener("complete", this.handleComplete.bind(this));
         loader.loadManifest(lib.properties.manifest);
     }
+
 
     handleComplete(evt) {
         const canvas = this.canvas;

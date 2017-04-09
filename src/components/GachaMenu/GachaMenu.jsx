@@ -90,12 +90,14 @@ class GachaMenu extends Component {
                     Audio not supported
                     <source src={menuBgm} type="audio/mp3"/>
                 </audio>
-                <CogContainer>
-                    <div className="VerticalCenter">
-                        {this.state.loaded ? this.renderModal() : null}
-                        {this.renderDialog()}
-                    </div>
-                </CogContainer>
+                {this.state.loaded ? (
+                    <CogContainer>
+                        <div className="VerticalCenter">
+                            {this.state.loaded ? this.renderModal() : null}
+                            {this.renderDialog()}
+                        </div>
+                    </CogContainer>
+                ) : null}
             </div>
         )
     }

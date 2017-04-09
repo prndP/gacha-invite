@@ -19,7 +19,7 @@ function createLoader() {
     const back = document.createElement('div');
     const banner = document.createElement('div');
     const panel = document.createElement('div');
-    const ratio = document.createElement('div');
+    const ratio = document.createElement('span');
 
     wrapper.className = 'starlight-loading';
     back.className = 'starlight-back';
@@ -35,6 +35,7 @@ function createLoader() {
     message_up.className = 'message-up';
     message_dn.className = 'message-down';
     message_up.appendChild(document.createTextNode('データダウンロード中'));
+    message_up.appendChild(ratio);
     message_dn.appendChild(document.createTextNode('※通信環境の良い所で実行してください'));
     panel.appendChild(message_up);
     panel.appendChild(message_dn);
@@ -60,7 +61,6 @@ function createLoader() {
     wrapper.appendChild(back);
     wrapper.appendChild(banner);
     wrapper.appendChild(panel);
-    wrapper.appendChild(ratio);
     document.body.appendChild(wrapper);
     return wrapper;
 }

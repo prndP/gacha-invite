@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: content-box;
+    font-size: 1.5vmin;
 }
 
 .starlight-loading p {
@@ -24,18 +25,18 @@
     border: 2px #ddd solid;
     border-radius: 10px;
     background: linear-gradient(#c6c6c6, #b5b5b5);
-    width: 479px;
-    height: 139px;
+    width: 50vmin;
+    height: 14.509vmin;
     z-index: 16000;
     position: fixed;
-    bottom: 30px;
-    left: 50px;
+    bottom: 3.132vmin;
+    left: 5.219vmin;
     box-shadow: 4px 4px 10px #090909;
 }
 
 .starlight-panel p {
     color: #363636;
-    font-size: 17px;
+    font-size: 1.065em;
     font-family: 'M+ 1p bold', sans-serif;
     line-height: 1.4em;
     transform: rotate(0.028deg);
@@ -46,8 +47,8 @@
     padding: 0;
     text-align: left;
     position: relative;
-    top: 32px;
-    left: 128px;
+    top: 3.34vmin;
+    left: 13.361vmin;
 }
 
 .starlight-panel .message-down {
@@ -55,27 +56,27 @@
     padding: 0;
     text-align: center;
     position: relative;
-    top: 63px;
+    top: 6.576vmin;
 }
 
 .starlight-panel .progress-border {
     border: 1px #000 solid;
     border-radius: 3px;
-    width: 424px;
-    height: 18px;
+    width: 44.259vmin;
+    height: 1.879vmin;
     z-index: 17000;
     position: fixed;
-    left: 79px;
-    bottom: 92px;
+    left: 8.246vmin;
+    bottom: 9.603vmin;
 }
 
 .starlight-ratio {
-    bottom: 114px;
-    left: 355px;
     z-index: 17000;
     position: fixed;
+    left: auto;
+    padding-left: 1vmin;
     color: #363636;
-    font-size: 16px;
+    font-size: 1em;
     font-weight: bold;
     font-family: 'M+ 1p bold', sans-serif;
     line-height: 1.6em;
@@ -84,12 +85,12 @@
 }
 
 .starlight-banner p {
-    bottom: 22px;
-    right: 100px;
+    bottom: 2.296vmin;
+    right: 10.438vmin;
     z-index: 16000;
     position: fixed;
     color: #fff;
-    font-size: 40px;
+    font-size: 2.5em;
     font-family: 'M+ 1p bold', sans-serif;
     line-height: 1.4em;
 }
@@ -99,13 +100,13 @@
 }
 
 .starlight-loading .heart {
-    bottom: 13px;
+    bottom: 1.357vmin;
     right: 0;
     z-index: 16000;
     position: fixed;
-    width: 104.6px;
-    height: 95.4px;
-    margin: 20px;
+    width: 11vmin;
+    height: 9.254vmin;
+    margin: 2.088vmin;
     background: url("./cgsymbol_white.svg") no-repeat;
     -webkit-animation: spinner 2s infinite linear;
     -moz-animation: spinner 2s infinite linear;
@@ -113,6 +114,8 @@
     animation: spinner 2s infinite linear;
     perspective: 500px;
     transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translate3d(0, 0, 0);
 }
 
 .starlight-loading .heart svg {
@@ -120,116 +123,18 @@
 }
 
 @-webkit-keyframes spinner {
-    0% {
-        -webkit-transform: rotate3d(0, 1, 0, 0deg);
-        -ms-transform: rotate3d(0, 1, 0, 0deg);
-        -o-transform: rotate3d(0, 1, 0, 0deg);
-        transform: rotate3d(0, 1, 0, 0deg);
+    from {
+        -webkit-transform: rotateY(0deg);
+        -moz-transform: rotateY(0deg);
+        -ms-transform: rotateY(0deg);
+        -o-transform: rotateY(0deg);
+        transform: rotateY(0deg);
     }
-
-    50% {
-        -webkit-transform: rotate3d(0, 1, 0, 180deg);
-        -ms-transform: rotate3d(0, 1, 0, 180deg);
-        -o-transform: rotate3d(0, 1, 0, 180deg);
-        transform: rotate3d(0, 1, 0, 180deg);
-    }
-
-    100% {
-        -webkit-transform: rotate3d(0, 1, 0, 360deg);
-        -ms-transform: rotate3d(0, 1, 0, 360deg);
-        -o-transform: rotate3d(0, 1, 0, 360deg);
-        transform: rotate3d(0, 1, 0, 360deg);
-    }
-}
-
-@-moz-keyframes spinner {
-    0% {
-        -webkit-transform: rotate3d(0, 1, 0, 0deg);
-        -ms-transform: rotate3d(0, 1, 0, 0deg);
-        -o-transform: rotate3d(0, 1, 0, 0deg);
-        transform: rotate3d(0, 1, 0, 0deg);
-    }
-
-    50% {
-        -webkit-transform: rotate3d(0, 1, 0, 180deg);
-        -ms-transform: rotate3d(0, 1, 0, 180deg);
-        -o-transform: rotate3d(0, 1, 0, 180deg);
-        transform: rotate3d(0, 1, 0, 180deg);
-    }
-
-    100% {
-        -webkit-transform: rotate3d(0, 1, 0, 360deg);
-        -ms-transform: rotate3d(0, 1, 0, 360deg);
-        -o-transform: rotate3d(0, 1, 0, 360deg);
-        transform: rotate3d(0, 1, 0, 360deg);
-    }
-}
-
-@-ms-keyframes spinner {
-    0% {
-        -webkit-transform: rotate3d(0, 1, 0, 0deg);
-        -ms-transform: rotate3d(0, 1, 0, 0deg);
-        -o-transform: rotate3d(0, 1, 0, 0deg);
-        transform: rotate3d(0, 1, 0, 0deg);
-    }
-
-    50% {
-        -webkit-transform: rotate3d(0, 1, 0, 180deg);
-        -ms-transform: rotate3d(0, 1, 0, 180deg);
-        -o-transform: rotate3d(0, 1, 0, 180deg);
-        transform: rotate3d(0, 1, 0, 180deg);
-    }
-
-    100% {
-        -webkit-transform: rotate3d(0, 1, 0, 360deg);
-        -ms-transform: rotate3d(0, 1, 0, 360deg);
-        -o-transform: rotate3d(0, 1, 0, 360deg);
-        transform: rotate3d(0, 1, 0, 360deg);
-    }
-}
-
-@-o-keyframes spinner {
-    0% {
-        -webkit-transform: rotate3d(0, 1, 0, 0deg);
-        -ms-transform: rotate3d(0, 1, 0, 0deg);
-        -o-transform: rotate3d(0, 1, 0, 0deg);
-        transform: rotate3d(0, 1, 0, 0deg);
-    }
-
-    50% {
-        -webkit-transform: rotate3d(0, 1, 0, 180deg);
-        -ms-transform: rotate3d(0, 1, 0, 180deg);
-        -o-transform: rotate3d(0, 1, 0, 180deg);
-        transform: rotate3d(0, 1, 0, 180deg);
-    }
-
-    100% {
-        -webkit-transform: rotate3d(0, 1, 0, 360deg);
-        -ms-transform: rotate3d(0, 1, 0, 360deg);
-        -o-transform: rotate3d(0, 1, 0, 360deg);
-        transform: rotate3d(0, 1, 0, 360deg);
-    }
-}
-
-@keyframes spinner {
-    0% {
-        -webkit-transform: rotate3d(0, 1, 0, 0deg);
-        -ms-transform: rotate3d(0, 1, 0, 0deg);
-        -o-transform: rotate3d(0, 1, 0, 0deg);
-        transform: rotate3d(0, 1, 0, 0deg);
-    }
-
-    50% {
-        -webkit-transform: rotate3d(0, 1, 0, 180deg);
-        -ms-transform: rotate3d(0, 1, 0, 180deg);
-        -o-transform: rotate3d(0, 1, 0, 180deg);
-        transform: rotate3d(0, 1, 0, 180deg);
-    }
-
-    100% {
-        -webkit-transform: rotate3d(0, 1, 0, 360deg);
-        -ms-transform: rotate3d(0, 1, 0, 360deg);
-        -o-transform: rotate3d(0, 1, 0, 360deg);
-        transform: rotate3d(0, 1, 0, 360deg);
+    to {
+        -webkit-transform: rotateY(359deg);
+        -moz-transform: rotateY(359deg);
+        -ms-transform: rotateY(359deg);
+        -o-transform: rotateY(359deg);
+        transform: rotateY(359deg);
     }
 }

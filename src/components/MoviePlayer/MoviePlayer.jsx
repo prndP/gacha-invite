@@ -94,7 +94,7 @@ export default class MoviePlayer extends React.Component {
     showClickToPlay() {
         return (
             <div className="ClickToPlay" onClick={() => {
-                //this.setState({needsClickToPlay: false});
+                this.setState({needsClickToPlay: false});
                 this.video.play();
             }}> </div>
         )
@@ -102,7 +102,8 @@ export default class MoviePlayer extends React.Component {
 
     render() {
         let videoAttrs = {
-            autoPlay: true
+            autoPlay: true,
+            playsInline: true
         };
         if (this.needsClickToPlay) {
 

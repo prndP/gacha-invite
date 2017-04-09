@@ -13,6 +13,6 @@
     left: 0;
     top: 0;
     display: block;
-    background: url('../../assets/cgsymbol_gray.svg') no-repeat center;
     background-size: 30% 30%;
+    background: url('../../assets/cgsymbol_gray.svg') no-repeat center;
 }
